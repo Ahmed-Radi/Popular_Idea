@@ -1,4 +1,13 @@
 @extends('layouts.app')
 @section('content')
-   <h1>about</h1> 
+<html class="no-js" lang="zxx">
+
+<head>
+</head>
+  <body>
+    <h1>Ahmed</h1>
+  </body>
+
+</html>
+
 @endsection
