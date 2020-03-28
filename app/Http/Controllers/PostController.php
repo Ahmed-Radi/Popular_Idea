@@ -51,7 +51,7 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
         ]);
-        
+
         //create post
         $post = new Post;
         $post->title = $request->input('title');
@@ -62,5 +62,42 @@ class PostController extends Controller
         return redirect('/posts')->with('success','Post Created');
     }
 
-    
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $post = Post::find($id);
+        return view('posts.edit')->with('post', $post);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
+        //edit post
+        $post = Post::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        return redirect('/posts')->with('success','Post Updated');
+    }
+
+
+
 }
