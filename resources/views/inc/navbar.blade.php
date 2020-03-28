@@ -1,12 +1,12 @@
 
 <nav class="navbar navbar-inverse">
     <div class="container">
-
-
+        
+        
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
-
+        
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
@@ -15,10 +15,11 @@
             </ul>
 
             <ul class="nav navbar-nav">
-              <li><a href="/">Home</a></li>
-              <li><a href="/posts">Blog</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/create">Create Post</a></li>
+                <li><a href="/posts">Blog</a></li>
             </ul>
-
+            
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
@@ -32,7 +33,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-
+                            
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
