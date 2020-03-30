@@ -51,7 +51,7 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
         ]);
-
+        
         //create post
         $post = new Post;
         $post->title = $request->input('title');
@@ -61,7 +61,18 @@ class PostController extends Controller
 
         return redirect('/posts')->with('success','Post Created');
     }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
 
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -88,7 +99,7 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
         ]);
-
+        
         //edit post
         $post = Post::find($id);
         $post->title = $request->input('title');
@@ -112,5 +123,4 @@ class PostController extends Controller
 
     }
     
-
 }
